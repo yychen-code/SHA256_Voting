@@ -32,10 +32,10 @@ def casting_vote():
     resA = str("".join(sA))
     sB = [str(j) for j in Vote_B]
     resB = str("".join(sB))
-    print("\nRandom bit A:\n", resA)
-    print("\nRandom bit B:\n", resB)
-    print("Random code sequence for A:\n", Vote_A)
-    print("Random code sequence for B:\n", Vote_B)
+    #print("\nRandom bit A:\n", resA)
+    #print("\nRandom bit B:\n", resB)
+    #print("Random code sequence for A:\n", Vote_A)
+    #print("Random code sequence for B:\n", Vote_B)
     secret_vote = input("Please enter your desired candidate 'a' or 'b':")
     if (secret_vote == ( 'a')):
         m1=hashlib.sha256()
