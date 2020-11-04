@@ -6,7 +6,7 @@ def retriving_vote():
         for pk in reader:
             print("Our record on your Public Key:\n",pk)
 
-    private_key = input("Enter your Private Key to verify:\n")
+    private_key = input("Enter your secret Key to verify:\n")
     last8value=private_key[-8:]
     m = hashlib.sha256()
     m.update(private_key.encode('utf-8'))
@@ -32,29 +32,31 @@ def casting_vote():
     resA = str("".join(sA))
     sB = [str(j) for j in Vote_B]
     resB = str("".join(sB))
-    #print("\nRandom bit A:\n", resA)
-    #print("\nRandom bit B:\n", resB)
+    #print("\nRandom 264 bits A:\n", resA)
+    #print("\nRandom 264 bits B:\n", resB)
     #print("Random code sequence for A:\n", Vote_A)
     #print("Random code sequence for B:\n", Vote_B)
     secret_vote = input("Please enter your desired candidate 'a' or 'b':")
     if (secret_vote == ( 'a')):
         m1=hashlib.sha256()
         m1.update(resA.encode('utf-8'))
-        print("Your private Key (V):\n{}".format(resA))
+        print("Your secret Key (V):\n{}".format(resA))
+        print("Please copy down the secret key for future verification.")
         print("Your digested public Key (T):\n{}".format(m1.hexdigest()))
-        print("Please copy down the information.")
         f = open("Public_Key.txt", "w")
         f.write(m1.hexdigest())
         f.close()
+        print("Bingo! public key has been published and recorded.")
     elif (secret_vote == ('b')):
         m2=hashlib.sha256()
         m2.update(resB.encode('utf-8'))
-        print("Your private Key (V):\n{}".format(resB))
+        print("Your secret Key (V):\n{}".format(resB))
+        print("Please copy down the secret key for future verification.")
         print("Your digested public Key (T):\n{}".format(m2.hexdigest()))
-        print("Please copy down the information.")
         f=open("Public_Key.txt","w")
         f.write(m2.hexdigest())
         f.close()
+        print("Bingo! public key has been published and recorded.")
     elif (secret_vote != ('A' and 'B')):
         print("Invalid Vote.")
 def choose():
